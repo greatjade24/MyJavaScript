@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function showCity() {
+		var text = document.getElementById("province2").value;
+		switch (text) {
+		case "서울특별시":
+			document.getElementById("city1").innerText = '마포구';
+			document.getElementById("city2").innerText = '강남구';
+			document.getElementById("city3").innerText = '강서구';
+			break;
+
+		case "경기도":
+			document.getElementById("city1").innerText = '수원';
+			document.getElementById("city2").innerText = '판교';
+			document.getElementById("city3").innerText = '부천';
+			break;
+
+		case "충청남도":
+			document.getElementById("city1").innerText = '천안';
+			document.getElementById("city2").innerText = '예산';
+			document.getElementById("city3").innerText = '아산';
+			break;
+		}
+
+	}
+	
+	function throwResult(num) {
+		if (num == 0) {
+			opener.document.getElementById("result").value = document
+					.getElementById("city1").innerText;
+
+		}
+		if (num == 1) {
+			opener.document.getElementById("result").value = document
+					.getElementById("city2").innerText;
+		}
+		if (num == 2) {
+			opener.document.getElementById("result").value = document
+					.getElementById("city3").innerText;
+		}
+		window.close();
+	}
+</script>
+</head>
+<body>
+	<input type="text" name="province2" id="province2" />
+	<br />
+	<br />
+	<input type="radio" name="city" id="city_one" onclick="javascript:throwResult(0)" />
+	<label id="city1" for="city_one"></label>
+	<br />
+	<input type="radio" name="city" id="city_two" onclick="javascript:throwResult(1)" />
+	<label id="city2" for="city_two"></label>
+	<br />
+	<input type="radio" name="city" id="city_three" onclick="javascript:throwResult(2)" />
+	<label id="city3" for="city_three"></label>
+</body>
+</html>

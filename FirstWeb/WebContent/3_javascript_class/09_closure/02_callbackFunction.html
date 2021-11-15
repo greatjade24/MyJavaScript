@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script type="text/javascript">
+/*  콜백함수란? 함수가 다른 함수의 파라메터로 전달되는 함수
+		 	콜백함수는 함수가 실행되는 중간에 호출되어 상태 정보를 저장하거나 결과 값을 처리할 때 사용
+ */
+ 
+		//------ 함수 선언
+		//  function add(){
+			
+		// }
+		
+		//------ 함수 호출
+		// add();
+		
+		/* 1.
+		function add(a, b, callbackFunc){
+			var result = a + b;
+			callbackFunc(result);
+		}
+		
+		add(10, 20, function(result){
+			document.writeln("결과 : " + result);
+		}); */
+		
+		
+		/*
+		function add(a, b, callbackFunc){
+			var result = a + b;
+			callbackFunc(result);
+			
+			var returnFunc = function(){
+				return a + " + " + b + " = " + result;
+			}
+			return returnFunc;								// 함수가 return 되기도 함
+		}
+		
+		var returnVar = add(10, 20, function(result){
+							document.writeln("결과 : " + result + '<br />');
+			  			});
+		document.writeln("return 받은 함수 결과 : " + returnVar + '<br />');
+		document.writeln("return 받은 함수 결과 : " + returnVar() + '<br />');
+		document.writeln(typeof returnVar);
+		
+		*/
+		
+		
+		// 클로저 (closure)
+		//		returnVar() 함수를 호출할 때, add 함수는 return 되었으므로 반환되어 메모리 접근이 불가능한 상태이나
+		//		returnVar() 함수에서 만든 count 변수가 접근 가능함.
+		//		함수 내에서 새로운 함수를 만들어 반환하는 경우 예외적으로 접근 허용
+		//		조건 : 1. 함수가 인수로 들어감, 2. 함수 내에서 함수가 선언됨
+		//		결과 : > 지역변수를 전역에서 사용할 수 있음
+		//		장점 : 전역변수를 줄이고, 함수 내에서만 사용할 수 있는 지역변수로 정의 가능
+		function add(a, b, callbackFunc){
+			var result = a + b;
+			callbackFunc(result);
+			
+			var count = 0;
+			var returnFunc = function(){
+				count++;
+				return a + " + " + b + " = " + result + " > " + count + "번 째 호출";
+			}
+			return returnFunc;								// 함수가 return 되기도 함
+		}
+		
+		var returnVar = add(10, 20, function(result){
+							document.writeln("결과 : " + result + '<br />');
+			  			});
+		document.writeln("return 받은 함수 결과 : " + returnVar + '<br />');
+		document.writeln("return 받은 함수 결과 : " + returnVar() + '<br />');
+		document.writeln("return 받은 함수 결과 : " + returnVar() + '<br />');
+		document.writeln("return 받은 함수 결과 : " + returnVar() + '<br />');
+		document.writeln("return 받은 함수 결과 : " + returnVar() + '<br />');
+		document.writeln(typeof returnVar);
+		
+</script>
+</head>
+<body>
+
+</body>
+</html>

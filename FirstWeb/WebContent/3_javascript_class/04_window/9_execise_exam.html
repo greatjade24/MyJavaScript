@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function(){
+
+	var winObj = window.open("09_sub.html", "newWin", "width=600, height=400");
+	
+	var seltag = document.getElementById("province");
+	seltag.onchange = function(){
+		winObj.document.getElementById("province2").value = document.getElementById("province").value;
+		winObj.showCity();
+	}
+}
+</script>
+</head>
+<body>
+	<form name="frm">
+		<select name="province" id="province">
+			<option>선택</option>
+			<option value="서울특별시">서울특별시</option>
+			<option value="경기도">경기도</option>
+			<option value="충청남도">충청남도</option>
+		</select>
+		<br/>
+		<input type="text" name="result" id="result"/>
+	</form>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트 리스너 연결</title>
+
+<script type="text/javascript">
+	//1. 윈도우가 열린 후에 핸들러 연결 - 방식3
+	/*     window.onload= function(){
+	 var btn = document.getElementById('btn');
+	 btn.addEventListener( 'click',  btn_click ) ;   
+	 function btn_click(){
+	 window.alert('버튼 클릭 이벤트 3 ');
+	 }
+	 }  */
+
+	//1. 윈도우가 열린 후에 핸들러 연결 - 방식 3 축약
+	window.onload = function() {
+		var btn = document.getElementById('btn');
+		btn.addEventListener('click', function() {
+			window.alert('버튼 클릭 이벤트 4 ');
+		});
+	}
+</script>
+</head>
+<body>
+	<input type='button' value='눌러' id='btn' />
+</body>
+</html>

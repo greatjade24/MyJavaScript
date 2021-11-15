@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Dom 이란</title>
+<style type="text/css">
+	body{
+		background-color : #993399;
+	}
+	div{
+		font-size:12px;
+		font-family: "굴림", "굴림체";
+		color: #ffff33;
+	}
+</style>
+<script type="text/javascript">
+	function changeStyle(elem){
+		document.body.style.background = "red";
+		elem.style.color = 'blue';
+	}
+	
+</script>
+</head>
+<body>
+	<div onmouseover="javascript:changeStyle(this)">안녕하세요	</div>
+	<div onmouseover="javascript:changeStyle(this)">감사합니다	</div>
+	<div onmouseover="javascript:changeStyle(this)">행복하세요	</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Audio</title>
+<style type="text/css">
+input {
+	width: 100px;
+}
+</style>
+<script type="text/javascript">
+	// 0. Audio 변수 선언
+	var audio = new Audio("../media/sensitive.mp3");
+
+	// 1. 재생버튼을 누르면 재생
+	var togglePlay = function() {
+		var control = document.getElementById('control');
+
+		if (audio.paused || audio.ended) { // Audio 내장 객체의 내장 함수 paused, ended
+			audio.play();
+			control.innerHTML = "일시정지";
+		} else {
+			audio.pause();
+			control.innerHTML = "재생";
+		}
+	}
+
+	// 2. 재생 중에 음소거를 눌렀을때
+	var toggleMute = function() {
+		audio.muted = !audio.muted;
+	}
+
+	// 3. 재생이 끝나면 다시 재생버튼으로 변경
+	audio.addEventListener('ended', function(){
+		conrtol.innerHTML = "재생";
+	});
+	
+	// 4. 현재 재생시간 출력
+	audio.addEventListener('timeupdate', function(evt){
+		current.value = audio.currentTime;
+	});
+</script>
+
+</head>
+<body>
+	<div id="player">
+		<img src="../images/test.jpg" id="img" /><br />
+		<button id="control" onclick="togglePlay()">play</button>
+		<input id="current" type="number" />
+		<button id="mute" onclick="toggleMute()">mute</button>
+	</div>
+</body>
+</html>

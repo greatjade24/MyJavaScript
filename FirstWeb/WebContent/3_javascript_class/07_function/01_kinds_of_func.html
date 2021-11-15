@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>자바스크립트 함수 만들기</title>
+	<script type="text/javascript">
+	//00번에서의 1번	
+	function first(){
+			var txt = document.getElementById('first');
+			txt.style.background = 'red';
+			txt.style.color = 'yellow';
+		}
+	
+	//00번에서 2번
+	var second = new Function('var txt = document.getElementById("second");	txt.style.background = "red"; txt.style.color = "yellow";');
+	
+	 //00번에서 3번
+	var third = function(){
+		var txt = document.getElementById('third');
+		txt.style.background = 'red';
+		txt.style.color = 'yellow';
+	 }
+	</script>
+</head>
+
+<body>
+	<p> <span id="first"> function 명령 </span> <!-- 문자열을 강조 할 때 span으로 묶음 -->
+		<input type="button" value="확인" onclick="javascript:first()"/>
+	</p>
+	<p> <span id="second"> Function 생성자 </span>
+		<input type="button" value="확인" onclick="javascript:second()"/>
+	</p>
+	<p> <span id="third"> 함수 리터럴 </span>
+		<input type="button" value="확인" onclick="javascript:third()"/>
+	</p>
+</body>
+</html>

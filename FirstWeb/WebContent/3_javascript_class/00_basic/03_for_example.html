@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>for를 이용한 테이블 생성</title>
+<script type="text/javascript">
+// 화면에 5행 5열 테이블을 만들고 각각의 행에다 컬럼값에 1-25까지 값을 초기화해서 넣기
+var num = 1;
+document.writeln("<table border='1' width=600px height=600px;>");
+for(var i = 0; i < 5; i++){
+	document.writeln("<tr>");
+	for(var j = 0; j < 5; j++){
+		document.writeln("<td>");
+		document.writeln(num);
+		document.writeln("</td>");
+		num++;
+	}
+	document.writeln("</tr>");
+}
+</script>
+</head>
+<body>
+
+</body>
+</html>

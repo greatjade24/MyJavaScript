@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title> Javascript 객체지향  - 상속 </title>
+</head>
+<body>
+	<script>
+		// 부모클래스
+		
+		var Animal = function(){ };
+		Animal.prototype = { 			// prototype으로 > 공통적으로 사용할 함수 선언
+			sound : function(){
+				document.writeln('울부짖다 <br/>');
+			},
+			move : function() {
+				document.writeln('동물은 움직인다 <br/>');
+			}
+		};
+
+		
+		// 자식클래스
+
+		var Dog = function(){};
+		Dog.prototype = new Animal(); 	// prototype으로 > Animal 객체의 계승
+										// Dog 클래스 안에 Animal 클래스를 담음 = Animal은 부모, Dog는 자식 클래스로 상속 관계가 됨
+		var dog = new Dog();
+		dog.move();						// 1. 부모클래스의 프로토타입
+		
+		Dog.prototype.sound = function(){
+			document.writeln('멍멍멍 짓는다. <br/>');
+		}			
+		dog.sound();					// 2. 오버라이딩 : 부모클래스의 프로토타입을 자식클래스의 프로토타입으로 덮어씀
+		
+		Dog.prototype.walk = function(){
+			document.writeln('개는 네 발로 걷는다. <br/>');
+		}
+		dog.walk();						// 3. 자식클래스에 프로토타입 추가
+		
+		
+		// Human 자식클래스 생성 (실습)
+		
+		var Human = function(){};
+		Human.prototype = new Animal();
+		Human.prototype = {
+				move : function(){
+					document.writeln('인간은 두발로 걷는다. <br/>');
+				},
+				sound : function(){
+					document.writeln('인간은 말을 한다. <br/>');
+				}
+		}
+		
+		var human = new Human();
+		human.move();
+		human.sound();
+		
+		/*
+		
+		(java 기반으로) 상속
+		
+		class Animal{
+			sound();
+			move();
+			walk();
+		}
+		class Dog extends Animal{	// java에서 자식 클래스 추가 'extends'
+			super();				// 부모클래스 호출
+			this();					// 자식클래스(스스로) 호출
+			walk();					// 오버라이딩 : 부모클래스의 메소드와 동명의 메소드를 자식클래스에 추가
+									//			 오버라이딩을 할 경우 호출 시 자식클래스가 사용됨
+									//		   < 통일성을 위해 : 예를 들어 회사에서 A부서, B부서, C부서의 매출이 모두 동명의 메소드 sales()로 사용될 수 있도록
+		}
+		
+		Dog d = new Dog();
+		d.sound();					// 부모클래스의 메소드 출력
+		d.walk();					// 자식클래스의 메소드 출력
+		
+		*/
+
+	</script>
+</body>
+</html>

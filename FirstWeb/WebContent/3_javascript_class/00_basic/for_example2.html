@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var num = 0;
+	var d = new Date('2021/12/01');
+	var today = new Date('2021/11/01');
+	var day = ["일", "월", "화", "수", "목", "금", "토"];
+	
+	document.writeln("<table border='1' width=600px height=600px;>");
+	
+	d.setDate(0);
+	var last_day = d.getDate();
+	if(last_day % 7 != 0){
+		th_num = last_day / 7 + 1;
+	}
+	var start_day = today.getDay();
+	document.writeln(today.getMonth() + 1);
+	
+	for(var i = 0; i < th_num; i++){
+		document.writeln("<tr>");
+		for(var j = 0; j < 7; j++){
+			if(num == 0 && j < start_day){
+				document.writeln("<td></td>");
+			}else{
+				document.writeln("<td>");
+				document.writeln(day[j]);
+				document.writeln("<br/>");
+				document.writeln("<br/>");
+				document.writeln("<br/>");
+				document.writeln(today.getDate() + num);
+				document.writeln("</td>");
+				num++;
+			}if(today.getDate() + num > last_day){
+				break;
+			}
+		}
+		if(today.getDate() + num > last_day){
+			break;
+		}
+		document.writeln("</tr>");
+	}
+	document.writeln("</table>");
+</script>
+</head>
+<body>
+
+</body>
+</html>

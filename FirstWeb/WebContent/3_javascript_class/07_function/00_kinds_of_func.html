@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>자바스크립트 함수 3가지</title>
+	<script>
+	//1. function 명령 = 정적구조(사용전에 기능이 완성되있어야함)
+/* 	function triangle(base, height){
+		return base * height / 2;
+	}
+	document.writeln('삼각형의 면적:', +triangle(4,3) + '<br/>');
+ */	
+	//2. Function 생성자 = 동적구조(순차적으로 실행, document가 위로 올라오면 아래 var값이 실행이 되지 않음, 실행시 판단, 사전 정의해야함)
+/* 	var triangle = new Function('base', 'height', 'return base*height/2');
+	document.writeln('삼각형의 면적2 : '+ triangle(4,3) + "<br/>")
+ */	
+	//3. 함수 리터럴(상수값 = 변하지 않는 값) = 동적구조(순차적으로 실행, document가 위로 올라오면 아래 var값이 실행이 되지 않음)
+	var triangle = function(base, height){
+	return base*height/2
+	}
+	document.writeln('삼각형의 면적3 : '+ triangle(4,3) + "<br/>");
+	</script>
+</head>
+
+<body>
+
+  
+ </body>
+</html>

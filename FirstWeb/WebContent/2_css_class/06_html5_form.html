@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/myform.css" type="text/css" />
+</head>
+<body>
+	<form>
+		<fieldset>
+			<legend>로그인 정보</legend>
+			<ol>
+				<li><label for="user_id">아이디</label> <input id="user_id" name="user_id" type="text" required autofocus /></li>
+				<li><label for="pwd1">비밀번호</label><input id="pwd1" name="pwd1" type="password" required/></li>
+				<li><label for="pwd2">비밀번호 확인</label><input id="pwd2" name="pwd2" type="password" required/></li>
+				<li><label>회원등급</label><input id="level" name="level" type="text" readonly value="준회원" /></li>
+			</ol>
+		</fieldset>
+		<fieldset>
+			<legend>개인 정보</legend>
+			<ol>
+				<li><label for="user_name">이름</label> <input id="user_name" name="user_name" type="text" placeholder="5자미만 공백없이" /></li>
+				<li><label for="user_mail">메일 주소</label> <input id="user_mail" name="user_mail" type="email" required autocomplete="off" placeholder="abcd@domain.com" /></li>
+				<li><label for="user_tel">연락처</label> <input id="user_tel" name="user_tel" type="tel" autocomplete="off"/></li>
+			</ol>
+		</fieldset>
+		<fieldset>
+			<legend>코딩 숙련도(상, 중, 하)</legend>
+			<ol>
+				<li><input id="coding_level" name="coding_level" type="range" min="1" max="5" step="1"/></li>
+			</ol>
+		</fieldset>
+		<fieldset>
+			<button type="submit">회원가입</button>
+			<button type="reset">초기화</button>
+		</fieldset>
+	</form>
+</body>
+</html>

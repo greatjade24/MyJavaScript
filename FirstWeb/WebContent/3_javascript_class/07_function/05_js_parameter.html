@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title> 파라메터 인자</title>
+	<script type="text/javascript">
+	// 기본형 파라미터 인자
+	var pri = 10;
+	function priParam(pri){
+		pri--;
+		return pri;
+	}
+	document.write("기본형 인자 1> " + priParam(pri) + "<br/>");
+	document.write("기본형 인자 2> " + pri + "<br/>");
+	
+	// 참조형 파라미터 인자(객체의 주소를 넘김 = 같은 객체)
+	var ref = [1, 2, 3, 4, 5];
+	function refParam(r){
+		r.pop();
+		return r;
+	}
+	document.write("참조형 인자 1> " + refParam(ref) + "<br/>");
+	document.write("참조형 인자 2> " + ref + "<br/>");
+	
+	// 참조형 파라미터 인자(객체의 주소를 넘김 = 같은 객체)
+	var str = "String";
+	function strParam(r){
+		r = r.replace('S', 'W');
+		return r;
+	}
+	document.write("참조형 인자 1> " + strParam(str) + "<br/>");
+	document.write("참조형 인자 2> " + str + "<br/>");
+	
+	var str2 = new String("String");
+	function str2Param(r){
+		r = r.replace('S', 'W');
+		return r;
+	}
+	document.write("참조형 인자 1> " + str2Param(str2) + "<br/>");
+	document.write("참조형 인자 2> " + str2 + "<br/>");
+	</script>
+</head>
+
+<body>
+
+  
+ </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script type="text/javascript">
+/* 	function prt(key, value){
+		document.write(key + " : " + value + "<br/>");
+	} */
+	function arrayWalk(data, f){
+		for(var key in data){
+			f(key, data[key]);
+		}
+	}
+	dddddd
+	var ary = [1, 2, 3, 4, 5];
+	//arrayWalk(ary, prt);
+	arrayWalk(ary, function(key, value){
+		document.write(key + " : " + value + "<br/>");
+	})
+</script>
+</head>
+<body>
+
+</body>
+</html>

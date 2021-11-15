@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery 시작</title>
+<style type="text/css">
+    .bg { background : yellow; }
+    .border { border : 3px dotted red; }
+ </style>
+ 
+ <script type="text/javascript" src="../lib/jquery-1.9.1.min.js"></script> 
+ <!-- <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>  -->
+<script type="text/javascript">
+    $(function(){
+        //1.클릭한 li요소를 result에 출력
+        /*$("li").bind("click",function(){//중복 클릭 가능
+            $('#result').text($(this).text());
+        })*/
+
+        /* $("li").one("click",function(){ //한번 클릭 event가 발생
+            $('#result').text(this.innerHTML);
+        }) */
+
+        //2. Event Helpers : 이벤트 축약형
+        $('li').click(function(){
+            $('result').text(this.innerHTML);
+        })
+
+        //이벤트 객체로부터 정보가 필요하다면, type, altkey, ctrlkey, shiftkey 등등
+        $('li').click(function(evt){
+            for(var prop in evt){
+                console.log(prop + "=" + evt[prop]);
+            }
+        })
+        $('h1').click(function(){//new Date()를 가지고 있는 li태그를 하나 생성하여 ul 태크 뒤에 붙이기
+            var li = $('<li/>').html(new Date());
+            $('ul').append(li);
+        })
+        $('h1').css('cursor','pointer');
+
+        $('ul').on('click','li',function(){ // 동적으로 생성된 태그에는 이벤트가 걸리지 않아서 on()를 사용해서 걸어줘야함
+            $('#result').html(this.innerHTML);
+        })
+    })
+</script>
+</head>
+<body>
+    <h1>제이쿼리 이벤트</h1>
+    <ul>
+      <li>부에노스 아이레스</li>
+      <li>바르셀로나</li>
+      <li>리마</li>
+      <li>라파스</li>
+    </ul>   
+   <div id="result"></div>
+</body>
+</html>

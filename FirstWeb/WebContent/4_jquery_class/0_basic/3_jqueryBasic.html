@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>filter</title>
+<style type="text/css">
+.bg {
+	background: yellow;
+}
+
+.border {
+	border: 3px dotted red;
+}
+
+.borderRed {
+	border: 3px dotted red;
+}
+
+.borderBlue {
+	border: 3px dotted blue;
+}
+</style>
+<script type="text/javascript" src="../lib/jquery-1.9.1.min.js"></script>
+<!-- <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>  -->
+<script type="text/javascript">
+	$(function() {
+		// 1. 필터
+		//$('li').css('border', '2px dotted green');
+		//$('li:first').css('border', '2px solid black'); // 첫번째 요소
+		//$('li:even').css('border', '3px dashed blue'); // 짝수 요소 적용
+		//$('li:eq(3)').css('border', '3px dotted red'); // 네번째 
+		//$('li:lt(2)').css('border', '3px solid red'); // 세번째보다 작으므로 0번째, 1번째
+		//$('li:not( li:first)').css('border', '4px dashed yellow'); // 첫번째를 제외한
+		//$('li:contains(튀김)').css('border', '4px dotted cyan'); // 자손을 모두 검색
+		//$(document).find($('li:contains(튀김)')).css('border', '4px dotted cyan'); // 위 코드의 다른 방법
+
+		// 2. 
+		//$('ul:has( li:contains(어묵))').css('border', '4px dotted cyan');
+		//$('li:contains(어묵):parent' ).css('border','4px dotted cyan');
+		//$('li').first().css('border', '4px dotted cyan');
+		//$('li').last().css('border','4px dotted cyan');
+
+		// 3. class 속성 제어
+		//$("li:odd").addClass("bg");
+		//$("li:last").addClass("border");
+		/* $("li").bind("click", function() {
+			$(this).addClass("border");
+		}); */
+		/* $('li').click(function(){
+			$(this).toggleClass('border');
+		}); */
+
+		// 마우스가 올라가면 추가하고 벗어나면 사라지게 하기
+		$("li").mouseover(function() {
+			$(this).addClass("border");
+		});
+		$("li").mouseout(function() {
+			$(this).removeClass("border");
+		});
+		//$('li:eq(4)').css('border','2px dotted green');         
+		//$('li:nth-child(2)').css('border','2px dotted red');
+
+		$('li:first').text("쫄면");
+		//$("li:eq(3)").text("<img src='./images/grim.jpg'>");
+		//$("li:last").html("<img src='./images/grim.jpg'>");
+		//alert($("li").html()); // 첫번째 대상의 요소만 넘김
+		//alert($("li").text()); // 대상 모두의 글자를 넘김
+
+		//[ 문제 ]  어묵 밑에 자식 요소들만 CSS의 border 클래스 적용
+
+		//[ 문제 ]  어묵 밑에 자식을 제외하고 마우스 올리면 CSS의 bg 클래스 적용
+
+		//[ 문제 ] 튀김를 포함한 요소에 백그라운드 적용 
+	});
+</script>
+</head>
+<body>
+	<h1>제이쿼리 시작</h1>
+	<h2>내가 좋아하는 음식</h2>
+	<ul id="food">
+		<li>떡볶이</li>
+		<li>어묵
+			<ul>
+				<li>어묵국</li>
+				<li>어묵말이</li>
+				<li>어묵튀김</li>
+			</ul>
+		</li>
+		<li>오징어튀김</li>
+		<li>새우튀김</li>
+		<li>야채튀김</li>
+	</ul>
+
+	<h2>내가 좋아하는 술</h2>
+	<ul>
+		<li>와인</li>
+		<li>맥주</li>
+		<li>막걸리</li>
+		<li>소주</li>
+	</ul>
+
+	<div id="result"></div>
+</body>
+</html>

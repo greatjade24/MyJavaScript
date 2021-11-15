@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트 핸들러 연결</title>
+<script type="text/javascript">
+	//1. 윈도우가 열린 후 핸들러 연결
+	/* 	window.onload = init; //
+	 function init(){
+	 document.getElementById('btn').onclick = btn_click;
+	 function btn_click(){
+	 window.alert('버튼 클릭 이벤트1');
+	
+	 }
+	
+	 }
+	 */
+
+	//2. 축약하는 방법
+	window.onload = function() {
+		document.getElementById('btn').onclick = function() {
+			window.alert('버튼 클릭 이벤트1');
+
+		}
+
+	}
+</script>
+</head>
+<body>
+	<input type='button' value='눌러' id='btn' />
+</body>
+</html>

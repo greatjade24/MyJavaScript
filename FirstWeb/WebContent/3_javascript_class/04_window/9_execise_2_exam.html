@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>숙제</title>
+<script type="text/javascript">
+	function changeSite(idx) {
+
+		switch (idx) {
+		case 0:
+			document.getElementById("ifrm").src = "http://www.daum.net";
+			break;
+		case 1:
+			document.getElementById("ifrm").src = "https://www.naver.com";
+			break;
+		case 2:
+			document.getElementById("ifrm").src = "http://www.nate.com";
+			break;
+		}
+	}
+</script>
+</head>
+<body>
+	<form name="frm">
+		<input type="radio" name="site" value='0' onclick="javascript:changeSite(0)"> 다음 <input type="radio" name="site" value='1' onclick="javascript:changeSite(1)"> 네이버 <input type="radio" name="site" value='2' onclick="javascript:changeSite(2)"> 네이트 <br />
+		<br />
+		<br />
+	</form>
+	<iframe name="ifrm" width="1400px" height="700px" id="ifrm" src=""></iframe>
+</body>
+</html>
