@@ -121,5 +121,8 @@ $RECYCLE.BIN/
 
 .metadata/
 Servers/
+FirstWeb/.classpath
+FirstWeb/.project
+
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,java,eclipse
